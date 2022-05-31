@@ -81,9 +81,9 @@ const app = {
 
     mounted() {
 
-        // Obter dados da sessão
-        let sessionData = window.sessionStorage.getItem('carrinho');
-        if(sessionData) this.carrinho = JSON.parse(sessionData);
+        // Obter dados do local storage
+        let localData = window.localStorage.getItem('carrinho');
+        if(localData) this.carrinho = JSON.parse(localData);
 
     },
 
@@ -153,10 +153,10 @@ const app = {
 
     watch: {
 
-        // Salvar alterações do carrinho na session
+        // Salvar alterações do carrinho no local storage
         carrinho: {
             handler() {
-                window.sessionStorage.setItem('carrinho', JSON.stringify(this.carrinho));
+                window.localStorage.setItem('carrinho', JSON.stringify(this.carrinho));
             },
             deep: true
         }
