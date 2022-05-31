@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    <title>Gaming Shop</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/img/icon.png" type="image/x-icon">
+
+    <!-- JS -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+
+            <!-- Header -->
+            <div class="header">
+                <a href="index.html">
+                    <img src="assets/img/logo.png" class="logo">
+                </a>
+                <a href="carrinho.html" class="btn-carrinho">Meu Carrinho ({{carrinho.quantidade}})</a>
+            </div>
+
+            <!-- Listagem -->
+            <div class="produtos">
+                <div class="row">
+
+                    <!-- Card produto -->
+                    <div class="col-xl-3 col-lg-4 col-sm-6" v-for="(produto, key) in produtos">
+                        <div class="card-produto mt-4">
+                            <div class="img-container">
+                                <img :src="'assets/img/produtos/' + produto.imagem">
+                            </div>
+                            <div class="content">
+                                <h3>{{produto.titulo}}</h3>
+                                <div class="resumo">{{produto.descricao}}</div>
+                                <div class="preco">{{produto.preco.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'})}}</div>
+                            </div>
+                            <a href="javascript:void(0);" @click="adicionarProduto(key)" class="btn-comprar">
+                                <i class="fas fa-shopping-cart me-2"></i>
+                                COMPRAR
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Mensagem de adição -->
+            <div class="mensagem-alerta" :class="{show: alerta}">
+                <i class="fas fa-check-circle me-3"></i>
+                Produto adicionado ao carrinho!
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                © por <a href="https://eugabrielsilva.tk" target="_blank">Gabriel Silva</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>

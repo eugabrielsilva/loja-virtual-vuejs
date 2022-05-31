@@ -1,0 +1,29 @@
+.carrinho {
+    margin-top: 50px;
+
+    .produto-foto {
+        display: flex;
+        align-items: center;
+
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-right: 20px;
+        }
+    }
+
+    a {
+        color: white;
+        transition: 0.3s color;
+
+        &:hover {
+            color: #90a4ae;
+        }
+    }
+
+    .alert {
+        max-width: 500px;
+        margin: auto;
+    }
+}
